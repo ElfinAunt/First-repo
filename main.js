@@ -56,14 +56,14 @@ function getMoistureReadings(){
 function waterPlant(){
     document.getElementsByClassName("Water_Plant")[0].disabled = true;
     console.log(`giving water for ${watering_duration}s`);
-    // setTimeout(()=>{
-    //     document.getElementsByClassName("Water_Plant")[0].disabled = '';
-    // },Number(watering_duration)+1500);
+    setTimeout(()=>{
+        document.getElementsByClassName("Water_Plant")[0].disabled = '';
+    },Number(watering_duration)+1500);
     let xhttp = new XMLHttpRequest();
     xhttp.open("GET",`/water_plant:${watering_duration}|`);
     xhttp.send();
     xhttp.onload = (status)=>{
-        document.getElementsByClassName("Water_Plant")[0].disabled = '';
+        // document.getElementsByClassName("Water_Plant")[0].disabled = '';
         console.log("watering done");
     }
 }
@@ -121,11 +121,3 @@ document.getElementsByClassName("Duration_menu")[0].onchange = (selected_duratio
 // if(time_remaining<=0){
 //     getTimeRemaining();
 // }
-
-
-
-
-
-
-
-
